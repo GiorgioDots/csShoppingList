@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="ShoppingListModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="ShoppingListModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Items">
           <Key>
             <PropertyRef Name="id" />
@@ -13,6 +13,7 @@
           <Property Name="name" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="category" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="id_shlist_fk" Type="int" Nullable="false" />
+          <Property Name="quantity" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="ShoppingList">
           <Key>
@@ -43,8 +44,7 @@
             <End Role="Items" EntitySet="Items" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ShoppingListModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -57,6 +57,7 @@
           <Property Name="category" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="id_shlist_fk" Type="Int32" Nullable="false" />
           <NavigationProperty Name="ShoppingList" Relationship="Self.FK_id_shlist" FromRole="Items" ToRole="ShoppingList" />
+          <Property Name="quantity" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="ShoppingList">
           <Key>
@@ -97,6 +98,7 @@
           <EntitySetMapping Name="Items">
             <EntityTypeMapping TypeName="ShoppingListModel.Items">
               <MappingFragment StoreEntitySet="Items">
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="category" ColumnName="category" />

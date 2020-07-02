@@ -57,7 +57,8 @@ namespace WpfAppShlist
             context.ShoppingList.Add(newList);
             shoppingListViewSource.View.Refresh();
             context.SaveChanges();
-            MessageBox.Show("Shopping List created successfully.");
+            newListName.Text = "";
+            MessageBox.Show("Shopping List created successfully.", "Success!");
         }
         private void addNewItem(object sender, RoutedEventArgs e)
         {
@@ -67,20 +68,35 @@ namespace WpfAppShlist
                         select l).FirstOrDefault();
             if(list != null)
             {
+                int quantity;
+                try
+                {
+                    quantity = int.Parse(newItemQuantity.Text);
+                }catch(Exception error)
+                {
+                    Console.WriteLine(error.Message);
+                    MessageBox.Show("The quantity must be an integer", "Error");
+                    return;
+                };
+
                 Items newItem = new Items()
                 {
                     id_shlist_fk = list.id,
                     name = newItemName.Text,
-                    category = newItemCatName.Text
+                    category = newItemCatName.Text,
+                    quantity = quantity
                 };
                 context.Items.Add(newItem);
                 itemsViewSource.View.Refresh();
                 context.SaveChanges();
-                MessageBox.Show("Item added successfully.");
+                newItemName.Text = "";
+                newItemCatName.Text = "";
+                newItemQuantity.Text = "";
+                MessageBox.Show("Item added successfully.", "Success!");
             }
             else
             {
-                MessageBox.Show("Please select a shopping list before add a new item.");
+                MessageBox.Show("Please select a shopping list before add a new item.", "Error");
             }
         }
         private void ShowSelectedListItems(object sender, FilterEventArgs e) 
@@ -125,7 +141,7 @@ namespace WpfAppShlist
                 context.ShoppingList.Remove(list);
                 context.SaveChanges();
                 shoppingListViewSource.View.Refresh();
-                MessageBox.Show("Shopping list deleted successfully");
+                MessageBox.Show("Shopping list deleted successfully", "Success!");
             }
         }
 
@@ -142,7 +158,7 @@ namespace WpfAppShlist
                 context.Items.Remove(item);
                 context.SaveChanges();
                 itemsViewSource.View.Refresh();
-                MessageBox.Show("Item deleted successfully");
+                MessageBox.Show("Item deleted successfully", "Success!");
             }
         }
     }

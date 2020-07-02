@@ -8,6 +8,7 @@
     <Property Name="name" Type="varchar" MaxLength="255" Nullable="false" />
     <Property Name="category" Type="varchar" MaxLength="255" Nullable="false" />
     <Property Name="id_shlist_fk" Type="int" Nullable="false" />
+    <Property Name="quantity" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="ShoppingList">
     <Key>

@@ -18,6 +18,7 @@ namespace WpfAppShlist
         public string name { get; set; }
         public string category { get; set; }
         public int id_shlist_fk { get; set; }
+        public int quantity { get; set; }
     
         public virtual ShoppingList ShoppingList { get; set; }
     }
