@@ -19,3 +19,9 @@ C:\Users\PC\source\repos\ShoppingList\WpfAppShlist\obj\Debug\WpfAppShlist.csproj
 C:\Users\PC\source\repos\ShoppingList\WpfAppShlist\obj\Debug\WpfAppShlist.csproj.CopyComplete
 C:\Users\PC\source\repos\ShoppingList\WpfAppShlist\obj\Debug\WpfAppShlist.exe
 C:\Users\PC\source\repos\ShoppingList\WpfAppShlist\obj\Debug\WpfAppShlist.pdb
+C:\Users\PC\source\repos\ShoppingList\WpfAppShlist\obj\Debug\AddItemsPage.g.cs
+C:\Users\PC\source\repos\ShoppingList\WpfAppShlist\obj\Debug\CreateListPage.g.cs
+C:\Users\PC\source\repos\ShoppingList\WpfAppShlist\obj\Debug\ViewItemsPage.g.cs
+C:\Users\PC\source\repos\ShoppingList\WpfAppShlist\obj\Debug\AddItemsPage.baml
+C:\Users\PC\source\repos\ShoppingList\WpfAppShlist\obj\Debug\CreateListPage.baml
+C:\Users\PC\source\repos\ShoppingList\WpfAppShlist\obj\Debug\ViewItemsPage.baml

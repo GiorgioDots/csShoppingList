@@ -12,25 +12,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.Data.Entity;
 
 namespace WpfAppShlist
 {
     /// <summary>
-    /// Logica di interazione per MainWindow.xaml
+    /// Logica di interazione per AddItemsPage.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class AddItemsPage : Page
     {
-        public MainWindow()
+        public AddItemsPage()
         {
             InitializeComponent();
-        }
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-        }
-        private void Window_Loaded_1(object sender, RoutedEventArgs e)
-        {
-            Main.Content = new CreateListPage();
         }
     }
 }

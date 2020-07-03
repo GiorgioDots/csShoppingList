@@ -1,0 +1,66 @@
+﻿<Page x:Class="WpfAppShlist.CreateListPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfAppShlist"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="CreateListPage">
+    <Page.Resources>
+        <CollectionViewSource x:Key="shoppingListViewSource" d:DesignSource="{d:DesignInstance {x:Type local:ShoppingList}, CreateList=True}"/>
+        <RoutedUICommand x:Key="DeleteListCommand" Text="Delete"/>
+        <RoutedUICommand x:Key="CreateListCommand" Text="Create"/>
+        <RoutedUICommand x:Key="ViewListCommand" Text="View"/>
+    </Page.Resources>
+    <Page.CommandBindings>
+        <CommandBinding Command="{StaticResource DeleteListCommand}" Executed="DeleteListCommandHandler"/>
+        <CommandBinding Command="{StaticResource CreateListCommand}" Executed="CreateListCommandHandler"/>
+        <CommandBinding Command="{StaticResource ViewListCommand}" Executed="ViewListCommandHandler"/>
+    </Page.CommandBindings>
+    <Grid DataContext="{StaticResource shoppingListViewSource}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20" />
+            <ColumnDefinition  />
+            <ColumnDefinition  />
+            <ColumnDefinition  />
+            <ColumnDefinition  />
+            <ColumnDefinition  />
+            <ColumnDefinition  />
+            <ColumnDefinition  />
+            <ColumnDefinition  />
+            <ColumnDefinition  />
+            <ColumnDefinition  />
+            <ColumnDefinition  />
+            <ColumnDefinition Width="20" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="20" />
+        </Grid.RowDefinitions>
+        <TextBlock Text="Create a new list" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="11" FontSize="24" Margin="0,0,0,10"/>
+        <TextBlock Text="Shopping List name:" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="3" />
+        <TextBox x:Name="newListNameTextBox" Grid.Column="4" Grid.Row="2" Margin="0,0,0,10" Grid.ColumnSpan="3"/>
+        <Button x:Name="createNewListButton" Grid.Column="6" Grid.Row="3" Content="Create" Command="{StaticResource CreateListCommand}"/>
+        <TextBlock Text="All Shopping Lists" Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="11" FontSize="24" Margin="0,10,0,10"/>
+        <DataGrid x:Name="shoppingListDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}"  RowDetailsVisibilityMode="VisibleWhenSelected" Grid.Column="1" Grid.ColumnSpan="11" Grid.Row="5" Margin="0,0,0,10">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Delete" Command="{StaticResource DeleteListCommand}" CommandParameter="{Binding}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn x:Name="nameColumn" Binding="{Binding name}" Header="name" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="viewListButton" Grid.Column="11" Grid.Row="6" Content="View" Command="{StaticResource ViewListCommand}"/>
+    </Grid>
+</Page>

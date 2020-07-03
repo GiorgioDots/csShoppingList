@@ -10,6 +10,7 @@
     <Property Name="id_shlist_fk" Type="Int32" Nullable="false" />
     <NavigationProperty Name="ShoppingList" Relationship="Self.FK_id_shlist" FromRole="Items" ToRole="ShoppingList" />
     <Property Name="quantity" Type="Int32" Nullable="false" />
+    <Property Name="isBought" Type="Boolean" Nullable="false" />
   </EntityType>
   <EntityType Name="ShoppingList">
     <Key>
