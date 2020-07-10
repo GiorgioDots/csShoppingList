@@ -67,9 +67,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="AddItemsPage.xaml.cs">
-      <DependentUpon>AddItemsPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="CreateListPage.xaml.cs">
       <DependentUpon>CreateListPage.xaml</DependentUpon>
     </Compile>
@@ -87,10 +84,6 @@
     <Compile Include="ViewItemsPage.xaml.cs">
       <DependentUpon>ViewItemsPage.xaml</DependentUpon>
     </Compile>
-    <Page Include="AddItemsPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="CreateListPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
