@@ -4,6 +4,8 @@
     <EntitySetMapping Name="Items">
       <EntityTypeMapping TypeName="ShoppingListModel.Items">
         <MappingFragment StoreEntitySet="Items">
+          <ScalarProperty Name="isBought" ColumnName="isBought" />
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="name" ColumnName="name" />
           <ScalarProperty Name="category" ColumnName="category" />

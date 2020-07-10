@@ -5,67 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfAppShlist"
         mc:Ignorable="d"
-        Title="Shopping List" Height="450" Width="525.5" Loaded="Window_Loaded_1">
+        Title="Shopping List" Height="450" Width="680" Loaded="Window_Loaded_1">
     <Window.Resources>
         <CollectionViewSource x:Key="itemsViewSource" d:DesignSource="{d:DesignInstance {x:Type local:Items}, CreateList=True}"/>
         <CollectionViewSource x:Key="shoppingListViewSource" d:DesignSource="{d:DesignInstance {x:Type local:ShoppingList}, CreateList=True}"/>
     </Window.Resources>
-    <Grid DataContext="{StaticResource shoppingListViewSource}">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="20"/>
-            <ColumnDefinition Width="auto"/>
-            <ColumnDefinition Width="auto"/>
-            <ColumnDefinition Width="auto"/>
-            <ColumnDefinition Width="auto"/>
-            <ColumnDefinition Width="auto"/>
-            <ColumnDefinition Width="auto"/>
-            <ColumnDefinition Width="auto"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="20"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="20" />
-            <RowDefinition Height="auto" />
-            <RowDefinition Height="auto" />
-            <RowDefinition Height="auto" />
-            <RowDefinition Height="auto" />
-            <RowDefinition Height="auto" />
-            <RowDefinition Height="auto" />
-            <RowDefinition Height="auto" />
-            <RowDefinition Height="auto" />
-            <RowDefinition Height="auto" />
-            <RowDefinition Height="auto" />
-            <RowDefinition Height="auto" />
-            <RowDefinition Height="auto" />
-            <RowDefinition Height="auto" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="20" />
-        </Grid.RowDefinitions>
-        <TextBlock Text="Create List" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" FontFamily="Segoe UI Light" FontSize="24" Margin="0,0,0,10"/>
-        <TextBlock Text="Name" Grid.Row="2" Grid.Column="1"/>
-        <TextBox x:Name="newListName" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" Margin="0,0,0,10"/>
-        <Button x:Name="addNewListBtn" Grid.Row="3" Grid.Column="3" Content="Add" Margin="0,0,0,10" Click="newListHandler"/>
-        <TextBlock Text="Add new Item" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3" FontFamily="Segoe UI Light" FontSize="24" Margin="0,0,0,10"/>
-        <TextBlock Text="Name" Grid.Row="5" Grid.Column="1"/>
-        <TextBox x:Name="newItemName" Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="2" Margin="0,0,0,10"/>
-        <TextBlock Text="Category" Grid.Row="6" Grid.Column="1"/>
-        <TextBox x:Name="newItemCatName" Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="2" Margin="0,0,0,10"/>
-        <Button x:Name="addNewItemBtn" Grid.Row="7" Grid.Column="3" Content="Add" Margin="0,0,0,10" Click="addNewItem"/>
-        <TextBlock Text="Shopping Lists" Grid.Row="1" Grid.Column="4" FontFamily="Segoe UI Light" FontSize="24" Margin="20,0,20,10" Grid.ColumnSpan="2"/>
-        <DataGrid x:Name="shoppingListDataGrid" AutoGenerateColumns="False" Grid.Column="4" EnableRowVirtualization="True" ItemsSource="{Binding}" Grid.ColumnSpan="2" Margin="20,0,0,10" Grid.Row="2" Grid.RowSpan="6" RowDetailsVisibilityMode="VisibleWhenSelected">
-            <DataGrid.Columns>
-                <DataGridTextColumn x:Name="nameColumn" Binding="{Binding name}" Header="Name" />
-            </DataGrid.Columns>
-        </DataGrid>
-        <Button x:Name="removeListBtn" Grid.Row="9" Grid.Column="5" Content="Remove" Margin="20,0,0,10" Click="removeListHandler"/>
-        <Button x:Name="viewListBtn" Grid.Row="8" Grid.Column="5" Content="View" Margin="20,0,0,10" Click="filterItems" />
-        <TextBlock Text="Items" Grid.Row="1" Grid.Column="6" Grid.ColumnSpan="3" FontFamily="Segoe UI Light" FontSize="24" Margin="20,0,0,10"/>
-        <DataGrid x:Name="itemsDataGrid" AutoGenerateColumns="False" Grid.Column="6" EnableRowVirtualization="True" ItemsSource="{Binding Source={StaticResource itemsViewSource}}" Margin="20,0,0,10" Grid.Row="2" Grid.RowSpan="6" Grid.ColumnSpan="2" RowDetailsVisibilityMode="VisibleWhenSelected">
-            <DataGrid.Columns>
-                <DataGridTextColumn x:Name="nameColumn1" Binding="{Binding name}" Header="Name" Width="SizeToHeader"/>
-                <DataGridTextColumn x:Name="categoryColumn" Binding="{Binding category}" Header="Category" Width="SizeToHeader"/>
-            </DataGrid.Columns>
-        </DataGrid>
-        <Button x:Name="deleteItem" Grid.Row="8" Grid.Column="7" Content="Remove" Margin="0,0,0,10" Click="removeItemHandler"/>
+    <Grid>
+        <Frame x:Name="Main" NavigationUIVisibility="Hidden" />
     </Grid>
 </Window>
